@@ -1,5 +1,6 @@
 options:
   organization: sales-demo
+  repositoryName: FairwindsOps/insights-ci-demo
 
 # These images will be scanned for vulnerabilities.
 images:
