@@ -1,0 +1,27 @@
+version: 2.1
+
+executors:
+  vm:
+    machine:
+      enabled: true
+
+jobs:
+  test:
+    docker:
+      - image: quay.io/reactiveops/ci-images:v11.0-stretch
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Setup
+          command: |
+            docker pull alpine:3.10.0
+      - run:
+          name: Insights CI
+          command: curl -L https://insights.fairwinds.com/v0/insights-ci.sh | bash
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test

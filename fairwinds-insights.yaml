@@ -1,0 +1,14 @@
+options:
+  organization: sales-demo
+
+# These images will be scanned for vulnerabilities.
+images:
+  docker:
+  - nginx:1.18-alpine
+  - alpine:3.10.0
+
+# These manifests will be scanned for configuration issues.
+manifests:
+  yaml:
+  - ./passing.yaml
+  - ./failing.yaml
